@@ -1,0 +1,41 @@
+{
+  "_comment": "===== MODEL CONFIGURATION =====",
+  "model_dir": "models/adv_trained",
+
+  "_comment": "===== TRAINING CONFIGURATION =====",
+  "random_seed": 4557077,
+  "max_num_training_steps": 100000,
+  "num_output_steps": 100,
+  "num_summary_steps": 100,
+  "num_checkpoint_steps": 300,
+  "training_batch_size": 50,
+
+  "_comment": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "eval_batch_size": 200,
+  "eval_on_cpu": true,
+
+  "_comment": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "epsilon": 0.3,
+  "k": 40,
+  "a": 0.01,
+  "random_start": true,
+  "loss_func": "xent",
+  "store_adv_path": "attack.npy",
+  
+	"attack": {
+      "use_linf": false,
+      "use_spatial": true,
+
+      "loss_function": "xent",
+      "epsilon": 8.0,
+      "num_steps": 5,
+      "step_size": 2.0,
+      "random_start": false,
+
+      "spatial_method": "random",
+      "spatial_limits": [3, 3, 30],
+      "random_tries": 10,
+      "grid_granularity": [5, 5, 31]
+  }
+}
